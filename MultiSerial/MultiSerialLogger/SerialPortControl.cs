@@ -13,7 +13,10 @@ namespace MultiSerialLogger
 {
     public partial class SerialPortControl : UserControl
     {
-        public SerialPortControl()
+        private String PortName = "";
+
+
+        public SerialPortControl(String portName)
         {
             InitializeComponent();
         }
@@ -56,6 +59,12 @@ namespace MultiSerialLogger
             this.cmbParity.ValueMember = "Key";
 
 
+        }
+
+        public bool setPortName( String portName )
+        {
+            this.PortName = portName;
+            return true;
         }
     }
 }
