@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grbSerial1 = new System.Windows.Forms.GroupBox();
             this.clbPortsList = new System.Windows.Forms.CheckedListBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
@@ -37,21 +36,10 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.tpagTest = new System.Windows.Forms.TabPage();
             this.serialPortControl1 = new MultiSerialLogger.SerialPortControl();
-            this.grbSerial1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageConfiguration.SuspendLayout();
             this.tpagTest.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // grbSerial1
-            // 
-            this.grbSerial1.Controls.Add(this.serialPortControl1);
-            this.grbSerial1.Location = new System.Drawing.Point(6, 6);
-            this.grbSerial1.Name = "grbSerial1";
-            this.grbSerial1.Size = new System.Drawing.Size(169, 193);
-            this.grbSerial1.TabIndex = 1;
-            this.grbSerial1.TabStop = false;
-            this.grbSerial1.Text = "Serial Port 1";
             // 
             // clbPortsList
             // 
@@ -119,7 +107,7 @@
             // 
             // tpagTest
             // 
-            this.tpagTest.Controls.Add(this.grbSerial1);
+            this.tpagTest.Controls.Add(this.serialPortControl1);
             this.tpagTest.Location = new System.Drawing.Point(4, 22);
             this.tpagTest.Name = "tpagTest";
             this.tpagTest.Padding = new System.Windows.Forms.Padding(3);
@@ -130,9 +118,9 @@
             // 
             // serialPortControl1
             // 
-            this.serialPortControl1.Location = new System.Drawing.Point(6, 19);
+            this.serialPortControl1.Location = new System.Drawing.Point(6, 6);
             this.serialPortControl1.Name = "serialPortControl1";
-            this.serialPortControl1.Size = new System.Drawing.Size(152, 171);
+            this.serialPortControl1.Size = new System.Drawing.Size(486, 414);
             this.serialPortControl1.TabIndex = 0;
             // 
             // MultiSerialLoggerForm
@@ -145,7 +133,6 @@
             this.Name = "MultiSerialLoggerForm";
             this.Text = "Multi Serial Logger by SDI";
             this.Load += new System.EventHandler(this.MultiSerialLogger_Load);
-            this.grbSerial1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPageConfiguration.ResumeLayout(false);
             this.tabPageConfiguration.PerformLayout();
@@ -157,7 +144,6 @@
         #endregion
 
         private SerialPortControl serialPortControl1;
-        private System.Windows.Forms.GroupBox grbSerial1;
         private System.Windows.Forms.CheckedListBox clbPortsList;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageConfiguration;

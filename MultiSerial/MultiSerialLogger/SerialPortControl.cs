@@ -46,7 +46,7 @@ namespace MultiSerialLogger
             this.cmbBaudRate.DataSource = new BindingSource(baudrateItems, null);
             this.cmbBaudRate.DisplayMember = "Value";
             this.cmbBaudRate.ValueMember = "Key";
-
+            this.cmbBaudRate.SelectedIndex = this.cmbBaudRate.FindStringExact("115200");
 
             List<String> lstPortNames = new List<string>(SerialPort.GetPortNames());
             lstPortNames.Sort();
@@ -60,19 +60,21 @@ namespace MultiSerialLogger
             Dictionary<Int32, String> datasizeItems = new Dictionary<Int32, String>();
             datasizeItems.Add(7, "7");
             datasizeItems.Add(8, "8");
+
             this.cmbDataSize.DataSource = new BindingSource(datasizeItems, null);
             this.cmbDataSize.DisplayMember = "Value";
             this.cmbDataSize.ValueMember = "Key";
+            this.cmbDataSize.SelectedIndex = this.cmbDataSize.FindStringExact("8");
 
-
-            Dictionary<Int32, String> parityItems = new Dictionary<Int32, String>();
+            Dictionary <Int32, String> parityItems = new Dictionary<Int32, String>();
             parityItems.Add(0, "none");
             parityItems.Add(1, "odd");
             parityItems.Add(2, "even");
+
             this.cmbParity.DataSource = new BindingSource(parityItems, null);
             this.cmbParity.DisplayMember = "Value";
             this.cmbParity.ValueMember = "Key";
-
+            this.cmbParity.SelectedIndex = this.cmbParity.FindStringExact("none");
 
         }
 
