@@ -14,10 +14,18 @@ namespace MultiSerialLogger
     public partial class SerialPortControl : UserControl
     {
         private String PortName = "";
+        private bool ReceiveEnabled = false;
 
+        public SerialPortControl( ) :this( "" )
+        {
+            
+        }
 
         public SerialPortControl(String portName)
         {
+            this.ReceiveEnabled = false;
+            PortName = portName;
+
             InitializeComponent();
         }
 
@@ -39,8 +47,15 @@ namespace MultiSerialLogger
             this.cmbBaudRate.DisplayMember = "Value";
             this.cmbBaudRate.ValueMember = "Key";
 
-            string[] ports = SerialPort.GetPortNames();
-            this.cmbSerialPort.DataSource = new BindingSource(ports, null);
+
+            List<String> lstPortNames = new List<string>(SerialPort.GetPortNames());
+            lstPortNames.Sort();
+            String[] portNames = lstPortNames.ToArray();
+            this.cmbSerialPort.DataSource = new BindingSource(portNames, null);
+
+            if (this.PortName.Length > 0 ) {
+                this.cmbSerialPort.SelectedIndex = this.cmbSerialPort.FindStringExact(this.PortName);
+            }
 
             Dictionary<Int32, String> datasizeItems = new Dictionary<Int32, String>();
             datasizeItems.Add(7, "7");
@@ -64,7 +79,19 @@ namespace MultiSerialLogger
         public bool setPortName( String portName )
         {
             this.PortName = portName;
+
+            if (this.PortName.Length > 0) {
+                this.cmbSerialPort.SelectedIndex = this.cmbSerialPort.FindStringExact(this.PortName);
+            }
             return true;
+        }
+
+        private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            if( this.ReceiveEnabled )
+            {
+
+            }
         }
     }
 }

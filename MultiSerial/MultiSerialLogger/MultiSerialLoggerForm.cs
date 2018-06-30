@@ -25,19 +25,18 @@ namespace MultiSerialLogger
 
         private void MultiSerialLogger_Load(object sender, EventArgs e)
         {
-            string[] ports = SerialPort.GetPortNames();
+            
             this.clbPortsList.Items.Clear();
-            foreach( string port in ports)
+
+            List<String> lstPortNames = new List<string>(SerialPort.GetPortNames());
+            lstPortNames.Sort();
+            foreach ( string port in lstPortNames)
             {
                 this.clbPortsList.Items.Add(port, false);
             }
+
             //this.checkedListBox1.DataBindings = new BindingSource(ports, null);
             //this.cmbSerialPort.DataSource = new BindingSource(ports, null);
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -60,7 +59,8 @@ namespace MultiSerialLogger
 
                     SerialPortControl myComControl; 
                     if ( dynamicComControl.TryGetValue(PortName, out myComControl ) == false ) {
-                        myComControl = new SerialPortControl(PortName);
+                        myComControl = new SerialPortControl();
+                        myComControl.setPortName(PortName);
                         dynamicComControl.Add(PortName, myComControl );
                         // Eventuali settaggi...
                     }

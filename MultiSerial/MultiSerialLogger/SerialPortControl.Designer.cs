@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmbSerialPort = new System.Windows.Forms.ComboBox();
             this.cmbBaudRate = new System.Windows.Forms.ComboBox();
             this.lblSerialPort = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.cmbDataSize = new System.Windows.Forms.ComboBox();
             this.lblParity = new System.Windows.Forms.Label();
             this.cmbParity = new System.Windows.Forms.ComboBox();
+            this.serialPort = new System.IO.Ports.SerialPort(this.components);
             this.SuspendLayout();
             // 
             // cmbSerialPort
@@ -106,6 +108,10 @@
             this.cmbParity.Size = new System.Drawing.Size(140, 21);
             this.cmbParity.TabIndex = 7;
             // 
+            // serialPort
+            // 
+            this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort_DataReceived);
+            // 
             // SerialPortControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,5 +142,6 @@
         private System.Windows.Forms.ComboBox cmbDataSize;
         private System.Windows.Forms.Label lblParity;
         private System.Windows.Forms.ComboBox cmbParity;
+        private System.IO.Ports.SerialPort serialPort;
     }
 }

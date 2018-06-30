@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.grbSerial1 = new System.Windows.Forms.GroupBox();
-            this.serialPortControl1 = new MultiSerialLogger.SerialPortControl( "" );
+            this.serialPortControl1 = new MultiSerialLogger.SerialPortControl();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.clbPortsList = new System.Windows.Forms.CheckedListBox();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -59,14 +59,7 @@
             this.serialPortControl1.Name = "serialPortControl1";
             this.serialPortControl1.Size = new System.Drawing.Size(152, 171);
             this.serialPortControl1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(84, 285);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+
             // 
             // clbPortsList
             // 
