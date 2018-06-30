@@ -63,6 +63,7 @@
             // 
             // tabPageConfiguration
             // 
+            this.tabPageConfiguration.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageConfiguration.Controls.Add(this.btnStop);
             this.tabPageConfiguration.Controls.Add(this.lblEnablePorts);
             this.tabPageConfiguration.Controls.Add(this.btnStart);
@@ -73,7 +74,6 @@
             this.tabPageConfiguration.Size = new System.Drawing.Size(498, 423);
             this.tabPageConfiguration.TabIndex = 0;
             this.tabPageConfiguration.Text = "Configuration";
-            this.tabPageConfiguration.UseVisualStyleBackColor = true;
             // 
             // btnStop
             // 
@@ -97,6 +97,7 @@
             // 
             // btnStart
             // 
+            this.btnStart.Enabled = false;
             this.btnStart.Location = new System.Drawing.Point(391, 336);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(101, 37);
@@ -107,6 +108,7 @@
             // 
             // tpagTest
             // 
+            this.tpagTest.BackColor = System.Drawing.SystemColors.Control;
             this.tpagTest.Controls.Add(this.serialPortControl1);
             this.tpagTest.Location = new System.Drawing.Point(4, 22);
             this.tpagTest.Name = "tpagTest";
@@ -114,7 +116,6 @@
             this.tpagTest.Size = new System.Drawing.Size(498, 423);
             this.tpagTest.TabIndex = 1;
             this.tpagTest.Text = "Test Page";
-            this.tpagTest.UseVisualStyleBackColor = true;
             // 
             // serialPortControl1
             // 
@@ -129,6 +130,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 473);
             this.Controls.Add(this.tabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MultiSerialLoggerForm";
             this.Text = "Multi Serial Logger by SDI";

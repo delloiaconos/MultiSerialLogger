@@ -50,6 +50,7 @@ namespace MultiSerialLogger
             }
 
             if( item == -1 || !( PortName.Length > 0 ) ) {
+                this.btnStart.Enabled = this.clbPortsList.CheckedItems.Count > 0;
                 return;
             }
 
@@ -88,6 +89,8 @@ namespace MultiSerialLogger
                     }
                 
                 }
+
+                this.btnStart.Enabled = this.clbPortsList.CheckedItems.Count> 0;
             }
         }
 
