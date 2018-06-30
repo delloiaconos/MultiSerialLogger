@@ -86,6 +86,27 @@ namespace MultiSerialLogger
             return true;
         }
 
+        public bool StartPort()
+        {
+            if( !this.ReceiveEnabled ) {
+                return true;
+
+            } else {
+                return false;
+            }
+            
+        }
+
+        public bool StopPort()
+        {
+            if ( this.ReceiveEnabled ) {
+                this.ReceiveEnabled = false;
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             if( this.ReceiveEnabled )

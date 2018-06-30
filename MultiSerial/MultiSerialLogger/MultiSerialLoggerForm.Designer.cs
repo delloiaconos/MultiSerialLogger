@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.grbSerial1 = new System.Windows.Forms.GroupBox();
-            this.serialPortControl1 = new MultiSerialLogger.SerialPortControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.clbPortsList = new System.Windows.Forms.CheckedListBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
+            this.btnStop = new System.Windows.Forms.Button();
             this.lblEnablePorts = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.tpagTest = new System.Windows.Forms.TabPage();
+            this.serialPortControl1 = new MultiSerialLogger.SerialPortControl();
             this.grbSerial1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageConfiguration.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpagTest.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbSerial1
@@ -53,28 +53,20 @@
             this.grbSerial1.TabStop = false;
             this.grbSerial1.Text = "Serial Port 1";
             // 
-            // serialPortControl1
-            // 
-            this.serialPortControl1.Location = new System.Drawing.Point(6, 19);
-            this.serialPortControl1.Name = "serialPortControl1";
-            this.serialPortControl1.Size = new System.Drawing.Size(152, 171);
-            this.serialPortControl1.TabIndex = 0;
-
-            // 
             // clbPortsList
             // 
             this.clbPortsList.CheckOnClick = true;
             this.clbPortsList.FormattingEnabled = true;
             this.clbPortsList.Location = new System.Drawing.Point(6, 38);
             this.clbPortsList.Name = "clbPortsList";
-            this.clbPortsList.Size = new System.Drawing.Size(405, 379);
+            this.clbPortsList.Size = new System.Drawing.Size(379, 379);
             this.clbPortsList.TabIndex = 2;
             this.clbPortsList.SelectedIndexChanged += new System.EventHandler(this.clbPortsList_SelectedIndexChanged);
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPageConfiguration);
-            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tpagTest);
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -83,8 +75,9 @@
             // 
             // tabPageConfiguration
             // 
+            this.tabPageConfiguration.Controls.Add(this.btnStop);
             this.tabPageConfiguration.Controls.Add(this.lblEnablePorts);
-            this.tabPageConfiguration.Controls.Add(this.button1);
+            this.tabPageConfiguration.Controls.Add(this.btnStart);
             this.tabPageConfiguration.Controls.Add(this.clbPortsList);
             this.tabPageConfiguration.Location = new System.Drawing.Point(4, 22);
             this.tabPageConfiguration.Name = "tabPageConfiguration";
@@ -93,6 +86,17 @@
             this.tabPageConfiguration.TabIndex = 0;
             this.tabPageConfiguration.Text = "Configuration";
             this.tabPageConfiguration.UseVisualStyleBackColor = true;
+            // 
+            // btnStop
+            // 
+            this.btnStop.Enabled = false;
+            this.btnStop.Location = new System.Drawing.Point(391, 379);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(101, 38);
+            this.btnStop.TabIndex = 5;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // lblEnablePorts
             // 
@@ -103,27 +107,33 @@
             this.lblEnablePorts.TabIndex = 4;
             this.lblEnablePorts.Text = "Ports Selection";
             // 
-            // button1
+            // btnStart
             // 
-            this.button1.Location = new System.Drawing.Point(417, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            
+            this.btnStart.Location = new System.Drawing.Point(391, 336);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(101, 37);
+            this.btnStart.TabIndex = 3;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // tabPage2
+            // tpagTest
             // 
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.grbSerial1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(498, 423);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpagTest.Controls.Add(this.grbSerial1);
+            this.tpagTest.Location = new System.Drawing.Point(4, 22);
+            this.tpagTest.Name = "tpagTest";
+            this.tpagTest.Padding = new System.Windows.Forms.Padding(3);
+            this.tpagTest.Size = new System.Drawing.Size(498, 423);
+            this.tpagTest.TabIndex = 1;
+            this.tpagTest.Text = "Test Page";
+            this.tpagTest.UseVisualStyleBackColor = true;
+            // 
+            // serialPortControl1
+            // 
+            this.serialPortControl1.Location = new System.Drawing.Point(6, 19);
+            this.serialPortControl1.Name = "serialPortControl1";
+            this.serialPortControl1.Size = new System.Drawing.Size(152, 171);
+            this.serialPortControl1.TabIndex = 0;
             // 
             // MultiSerialLoggerForm
             // 
@@ -131,6 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 473);
             this.Controls.Add(this.tabControl);
+            this.MaximizeBox = false;
             this.Name = "MultiSerialLoggerForm";
             this.Text = "Multi Serial Logger by SDI";
             this.Load += new System.EventHandler(this.MultiSerialLogger_Load);
@@ -138,8 +149,7 @@
             this.tabControl.ResumeLayout(false);
             this.tabPageConfiguration.ResumeLayout(false);
             this.tabPageConfiguration.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tpagTest.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -148,13 +158,13 @@
 
         private SerialPortControl serialPortControl1;
         private System.Windows.Forms.GroupBox grbSerial1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckedListBox clbPortsList;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageConfiguration;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tpagTest;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lblEnablePorts;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 

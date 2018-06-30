@@ -90,5 +90,27 @@ namespace MultiSerialLogger
                 }
             }
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            this.btnStart.Enabled = false;
+            foreach (KeyValuePair<String, SerialPortControl> entry in this.dynamicComControl )
+            {
+                SerialPortControl myControl = entry.Value;
+                myControl.StartPort();
+            }
+            this.btnStop.Enabled = true;
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            this.btnStop.Enabled = false;
+            foreach (KeyValuePair<String, SerialPortControl> entry in this.dynamicComControl)
+            {
+                SerialPortControl myControl = entry.Value;
+                myControl.StopPort();
+            }
+            this.btnStart.Enabled = true;
+        }
     }
 }
